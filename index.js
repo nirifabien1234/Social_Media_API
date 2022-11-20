@@ -18,11 +18,12 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan('common'))
 
-app.use('/api/users', userRoute)
-app.use('/api/auth', authRoute)
-app.use('/api/posts', postRoute)
+//Endpoints
+app.use('/api/v1/users', userRoute)
+app.use('/api/v1/auth', authRoute)
+app.use('/api/v1/posts', postRoute)
 
 
-app.listen(8000, () => {
-    console.log("Backend server is running!")
+app.listen(5000, () => {
+    console.log("Backend server is running on port 5000 ")
 })

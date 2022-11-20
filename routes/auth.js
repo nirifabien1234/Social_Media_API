@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const router= require('express').Router()
 const bcrypt = require('bcrypt')
+
 // REGISTER
 router.post("/register", async (req, res) => {
     const {username, email, password} = req.body
@@ -8,6 +9,7 @@ router.post("/register", async (req, res) => {
         //generate new password
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
+
         
         //create new user
         const newUser = new User({username, email, password: hashedPassword})
